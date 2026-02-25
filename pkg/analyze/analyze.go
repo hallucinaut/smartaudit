@@ -2,8 +2,8 @@
 package analyze
 
 import (
+	"fmt"
 	"regexp"
-	"strings"
 )
 
 // AnalysisType represents a type of analysis.
@@ -181,7 +181,7 @@ func GenerateReport(result *AnalysisResult) string {
 	var report string
 
 	report += "=== Smart Contract Analysis Report ===\n\n"
-	report += "Analysis Score: " + string(rune(int(result.Score*100)+48)) + "%\n"
+	report += "Analysis Score: " + fmt.Sprintf("%.0f%%", result.Score*100) + "%\n"
 	report += "Issues Found: " + string(rune(len(result.Issues)+48)) + "\n\n"
 
 	if len(result.Issues) > 0 {

@@ -2,6 +2,7 @@
 package audit
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -276,7 +277,7 @@ func GenerateReport(result *AuditResult) string {
 
 	report += "=== Smart Contract Security Audit Report ===\n\n"
 	report += "Contract: " + result.ContractName + "\n"
-	report += "Risk Score: " + string(rune(int(result.RiskScore*100)+48)) + "%\n"
+	report += "Risk Score: " + fmt.Sprintf("%.0f%%", result.RiskScore*100) + "%\n"
 	report += "Status: " + boolToString(result.IsSecure) + "\n\n"
 
 	if len(result.Vulnerabilities) > 0 {

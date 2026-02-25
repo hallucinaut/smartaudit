@@ -59,7 +59,7 @@ Commands:
 Examples:
   smartaudit audit contract.sol
   smartaudit analyze contract.sol
-`, "smartaudit")
+`,)
 }
 
 func auditContract(filepath string) {
